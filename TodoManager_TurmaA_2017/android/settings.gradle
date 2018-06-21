@@ -1,0 +1,3 @@
+rootProject.name = 'TodoManager_TurmaA_2017'
+
+include ':app'
