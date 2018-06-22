@@ -1,6 +1,7 @@
 import { AppRegistry } from 'react-native';
 //import App from './App';
-import App from './src/index'
-import Register from './src/Register'
+//import Login from './src/screen/Login'
+//import Register from './src/screen/Register'
+import {Routes} from './src/services/Router';
 
-AppRegistry.registerComponent('TodoManager', () => Register);
+AppRegistry.registerComponent('TodoManager', () => Routes);

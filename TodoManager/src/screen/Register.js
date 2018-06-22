@@ -13,9 +13,13 @@ import {
 
 
 
-const img = require('./assets/logo.jpeg');
+const img = require('../assets/logo.jpeg');
 
 export default class Register extends Component {
+
+    static navigationOptions = {
+        title: 'Register'
+    };
 
     constructor(props){
       super(props)
@@ -69,6 +73,8 @@ export default class Register extends Component {
                   <TouchableOpacity onPress={() => {}} style={styles.button}>
                       <Text style={styles.buttonText}>REGISTER USER</Text>
                   </TouchableOpacity>
+
+                  
 
                 </View>
 
