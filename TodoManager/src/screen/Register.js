@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
   View,
-  StyleSheet,
   SafeAreaView,
   Image,
   Text,
@@ -10,6 +9,7 @@ import {
   KeyboardAvoidingView,
   TouchableOpacity
 } from 'react-native';
+import styles from './styles';
 
 
 
@@ -41,7 +41,7 @@ export default class Register extends Component {
 
                     <Image
                       source= {img}
-                      style= {styles.image} />
+                      style= {styles.imageMin} />
 
                     <Text style={styles.topText}>Registering new user</Text>
                 </View>
@@ -84,56 +84,3 @@ export default class Register extends Component {
         );
       }
 }
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      backgroundColor: '#F5FCFF',
-    },
-    topView: {
-      flex: 0.2,
-      flexDirection: 'row',
-      alignItems: 'center',
-      padding: 25,
-    },
-    topText:{
-      fontSize: 20,
-      fontWeight: 'bold',
-      marginLeft: 20,
-    },
-    image:{
-      width: 50,
-      height: 50,
-    },
-    form:{
-      flex: 1,
-      flexDirection: 'column',
-      marginTop: 20,
-    },
-    input:{
-      marginHorizontal: 30,
-      borderRadius: 5,
-      height: 44,
-      paddingHorizontal: 10,
-      marginBottom: 10,
-      borderBottomColor: '#47525e',
-      borderBottomWidth: 0.5,
-    },
-    button: {
-      marginHorizontal: 30,
-      backgroundColor: '#47525e',
-      borderRadius: 5,
-      alignSelf: 'stretch',
-      height: 44,
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginTop: 10,
-    },
-    buttonText: {
-      fontWeight: 'bold',
-      color: '#fff',
-      fontSize: 16,
-    },
-   
-  });

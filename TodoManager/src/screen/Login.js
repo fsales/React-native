@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { SafeAreaView, KeyboardAvoidingView, StyleSheet, View, Image, TextInput, Button, Text, Alert } from 'react-native';
+import { SafeAreaView, KeyboardAvoidingView, View, Image, TextInput, Button, Text, Alert } from 'react-native';
+import styles from './styles';
 
 const img = require('../assets/TodoList.png');
 
@@ -19,25 +20,40 @@ export default class Login extends Component {
     
     render() {
         return (
-            <SafeAreaView style={{ flex: 1 }}>
-                <KeyboardAvoidingView style={styles.container}
-                    behavior='padding'>
+            
+            <KeyboardAvoidingView style={styles.container} behavior='padding'>
+                <SafeAreaView style={styles.container}>   
+                    
                     <View style={styles.topView}>
-                        <Image style={styles.img} source={img} />
+                        <Image 
+                            style={styles.img} 
+                            source={img} />
                     </View>
-                    <View style={styles.bottomView}>
-                        <TextInput style={styles.input}
+
+                    <View style={styles.form}>
+                        
+                        <TextInput 
+                            style={styles.input}
                             value={this.state.email}
                             placeholder='Email'
                             keyboardType={'email-address'}
                             autoCapitalize='none'
+                            underlineColorAndroid = "rgba(0, 0, 0, 0)"
                             onChangeText={(text) => this.setState({ email: text })} />
-                        <TextInput style={styles.input}
+                        
+                        <TextInput 
+                            style={styles.input}
                             placeholder='Password'
                             secureTextEntry={true}
+                            underlineColorAndroid = "rgba(0, 0, 0, 0)"
                             onChangeText={(password) => this.setState({ password })} />
-                        <Button title='Sign In'
-                            onPress={() => Alert.alert(`Email: ${this.state.email}\nPassword: ${this.state.password}`)} />
+                        
+                        <Button 
+                            title='Sign In'
+                            onPress={() => Alert.alert(`Email: ${this.state.email}\nPassword: ${this.state.password}`)} 
+                            style={styles.button}
+                            />
+
                         <View style={styles.textConteiner}>
                             <Text>Not a member? Let's </Text>
                             <Text style={styles.textRegister}
@@ -46,40 +62,10 @@ export default class Login extends Component {
                             </Text>
                         </View>
                     </View>
-                </KeyboardAvoidingView>
-            </SafeAreaView>
+                </SafeAreaView>
+            </KeyboardAvoidingView>
+            
         );
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'column'
-    },
-    topView: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 50
-    },
-    img: {
-        width: 200,
-        height: 200
-    },
-    bottomView: {
-        flexDirection: 'column',
-        paddingRight: 20,
-        paddingLeft: 20
-    },
-    input: {
-        marginBottom: 20
-    },
-    textConteiner: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        marginTop: 20
-    },
-    textRegister: {
-        fontWeight: 'bold'
-    }
-});
