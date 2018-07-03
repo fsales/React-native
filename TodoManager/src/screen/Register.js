@@ -7,9 +7,12 @@ import {
   TextInput,
   Button,
   KeyboardAvoidingView,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from 'react-native';
+import {NavigationActions} from 'react-navigation'
 import styles from './styles';
+import {createUserOnFirebaseAsync} from '../services/FirebaseApi'
 
 
 
@@ -24,11 +27,7 @@ export default class Register extends Component {
     constructor(props){
       super(props)
 
-      this.state = {
-        email: '',
-        senha: '',
-      }
-
+      this.state = { email: '', password: '' };
     }
   
     render() {
@@ -61,20 +60,18 @@ export default class Register extends Component {
                   <TextInput
                       autoCapitalize = "none"
                       autoCorrect = {false}
-                      placeholder = "Senha"
+                      placeholder = "Password"
                       style = {styles.input}
                       underlineColorAndroid = "rgba(0, 0, 0, 0)"
-                      value={this.state.senha}
-                      onChangeText={senha => this.setState({ senha })}
-                      secureTextEntry
+                      value={this.state.password}
+                      onChangeText={password => this.setState({ password })}
+                      secureTextEntry={true}
                   />
                   
 
-                  <TouchableOpacity onPress={() => {}} style={styles.button}>
-                      <Text style={styles.buttonText}>REGISTER USER</Text>
-                  </TouchableOpacity>
+                  <Button title='Register User' style={styles.button}
+                            onPress={async () => await this.createUserAsync()} />
 
-                  
 
                 </View>
 
@@ -83,4 +80,27 @@ export default class Register extends Component {
           </KeyboardAvoidingView>
         );
       }
+
+      async createUserAsync() {
+        try {
+            const user = await createUserOnFirebaseAsync(
+                this.state.email,
+                this.state.password
+            );
+            const message = `User ${user.email} has been created!`;
+            Alert.alert('User Created', message,
+                [
+                    {
+                        text: 'Ok', onPress: () => {
+                            // const backAction = NavigationActions.back();
+                            // this.props.navigation.dispatch(backAction);
+                            this.props.navigation.goBack();
+                        }
+                    }
+                ]);
+        } catch (error) {
+            Alert.alert('Create User Failed', error.message);
+        }
+    }
+
 }

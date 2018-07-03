@@ -3,5 +3,9 @@ import { AppRegistry } from 'react-native';
 //import Login from './src/screen/Login'
 //import Register from './src/screen/Register'
 import {Routes} from './src/services/Router';
+import { initializeFirebaseApi } from './src/services/FirebaseApi';
 
-AppRegistry.registerComponent('TodoManager', () => Routes);
+AppRegistry.registerComponent('TodoManager', () =>{
+   initializeFirebaseApi();
+   return Routes
+});
