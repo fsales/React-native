@@ -29,51 +29,51 @@ export default class Login extends Component {
     
     render() {
         return (
-            
-            <KeyboardAvoidingView style={styles.container} behavior='padding'>
-                <SafeAreaView style={styles.container}>   
+            <SafeAreaView style={{ flex: 1 }}>  
+                <KeyboardAvoidingView style={styles.container} behavior='padding'>
                     
-                    <View style={styles.topView}>
-                        <Image 
-                            style={styles.img} 
-                            source={img} />
-                    </View>
-
-                    <View style={styles.form}>
                         
-                        <TextInput 
-                            style={styles.input}
-                            value={this.state.email}
-                            placeholder='Email'
-                            keyboardType={'email-address'}
-                            autoCapitalize='none'
-                            underlineColorAndroid = "rgba(0, 0, 0, 0)"
-                            onChangeText={(text) => this.setState({ email: text })} />
-                        
-                        <TextInput 
-                            style={styles.input}
-                            placeholder='Password'
-                            secureTextEntry={true}
-                            underlineColorAndroid = "rgba(0, 0, 0, 0)"
-                            onChangeText={(password) => this.setState({ password })} />
-                        
-                        <Button 
-                            title='Sign In'
-                            onPress={async () => await this.signInAsync()}
-                            style={styles.button}
-                            />
-
-                        <View style={styles.textConteiner}>
-                            <Text>Not a member? Let's </Text>
-                            <Text style={styles.textRegister}
-                                   onPress = { () => this.props.navigation.navigate('Register') }>
-                                Register
-                            </Text>
+                        <View style={styles.topView}>
+                            <Image 
+                                style={styles.img} 
+                                source={img} />
                         </View>
-                    </View>
-                </SafeAreaView>
-            </KeyboardAvoidingView>
-            
+
+                        <View style={styles.form}>
+                            
+                            <TextInput 
+                                style={styles.input}
+                                value={this.state.email}
+                                placeholder='Email'
+                                keyboardType={'email-address'}
+                                autoCapitalize='none'
+                                underlineColorAndroid = "rgba(0, 0, 0, 0)"
+                                onChangeText={(text) => this.setState({ email: text })} />
+                            
+                            <TextInput 
+                                style={styles.input}
+                                placeholder='Password'
+                                secureTextEntry={true}
+                                underlineColorAndroid = "rgba(0, 0, 0, 0)"
+                                onChangeText={(password) => this.setState({ password })} />
+                            
+                            <Button 
+                                title='Sign In'
+                                onPress={async () => await this.signInAsync()}
+                                style={styles.button}
+                                />
+
+                            <View style={styles.textConteiner}>
+                                <Text>Not a member? Let's </Text>
+                                <Text style={styles.textRegister}
+                                    onPress = { () => this.props.navigation.navigate('Register') }>
+                                    Register
+                                </Text>
+                            </View>
+                        </View>
+                    
+                </KeyboardAvoidingView>
+            </SafeAreaView>
         );
     }
 
