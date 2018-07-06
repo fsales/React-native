@@ -32,9 +32,10 @@ export default class Register extends Component {
   
     render() {
         return (
-          <KeyboardAvoidingView style={styles.container} behavior="padding">
+          <SafeAreaView style={{ flex: 1 }}>
+            <KeyboardAvoidingView style={styles.container} behavior="padding">
 
-            <SafeAreaView style={styles.container}>
+          
 
                 <View style={styles.topView}>
 
@@ -74,10 +75,10 @@ export default class Register extends Component {
 
 
                 </View>
+            </KeyboardAvoidingView>
+        </SafeAreaView>
 
-            </SafeAreaView>
-
-          </KeyboardAvoidingView>
+          
         );
       }
 

@@ -66,7 +66,7 @@ export default class Login extends Component {
                             <View style={styles.textConteiner}>
                                 <Text>Not a member? Let's </Text>
                                 <Text style={styles.textRegister}
-                                    onPress = { () => this.props.navigation.navigate('Register') }>
+                                    onPress = { () => this.props.navigation.navigate('pageRegister') }>
                                     Register
                                 </Text>
                             </View>
@@ -83,8 +83,8 @@ export default class Login extends Component {
                 this.state.email,
                 this.state.password
             );
-            const message = `User ${user.email} authenticated`;
-            Alert.alert('User Authenticated', message);
+           // const message = `User ${user.email} authenticated`;
+           // Alert.alert('User Authenticated', message);
             const resetAction = StackActions.reset({
                 index: 0,
                 actions: [NavigationActions.navigate({ routeName: 'pageTaskList' })],
