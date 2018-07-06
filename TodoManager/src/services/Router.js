@@ -1,13 +1,21 @@
-import React from 'react';
-import { StackNavigator } from 'react-navigation';
-import App from '../../App';
-import Login from '../screen/Login';
-import Register from '../screen/Register';
+//import React from 'react';
+import { createStackNavigator, createTabNavigator } from 'react-navigation';
+//import App from '../../App';
+//import Login from '../screen/Login';
+//import Register from '../screen/Register';
+import {Login, Register, ToDoTasks, DoneTasks} from '../screen/Screens' 
 
-export const Routes = StackNavigator({
-    App: { screen: App },
-    Login: { screen: Login },
-    Register: { screen: Register }
+const pageTaskList = createTabNavigator({
+    pageTodoTasks:  { screen: ToDoTasks },
+    pageDoneTasks: { screen: DoneTasks }
+});
+
+export const Routes = createStackNavigator({
+    pageLogin: { screen: Login },
+    pageRegister: { screen: Register },
+    pageTaskList: {
+        screen: pageTaskList
+    }
 },
 {
     headerMode: 'screen'
